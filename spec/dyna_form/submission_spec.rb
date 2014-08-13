@@ -50,12 +50,5 @@ describe DynaForm::Submission do
         expect { submission.submit }.to raise_error("User created")
       end      
     end
-
-    context "given the number of variables outweighs the attributes" do
-      it "should raise an error" do
-        submission = DynaForm::Submission.new("admin_user", too_many_vars, attributes)
-        expect { submission.submit }.to raise_error("Attempted to delegate a non-existed attribute variable")
-      end
-    end
   end
 end

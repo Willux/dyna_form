@@ -18,11 +18,6 @@ module DynaForm
     private
 
     def submit_helper(dangerous)
-      surplus = @variables - @attributes.keys
-      if surplus.length > 0
-        raise "Attempted to delegate a non-existed attribute variable"
-      end
-
       attrs = @attributes.select { |k, _| @variables.include?(k.to_sym) }
 
       class_name = @model
