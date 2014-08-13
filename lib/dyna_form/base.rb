@@ -59,7 +59,11 @@ module DynaForm
       return @submissions unless @submissions.nil?
 
       @submissions = []
-      @@fields.each do |model, variables|
+
+      # TODO: we might be able to change this to just @@fields. More testing
+      # will be required to ensure that that is the case.
+      fields = class_variable_get(:@@fields)
+      fields.each do |model, variables|
         @submissions << DynaForm::Submission.new(model, variables, attributes)
       end
       @submissions
