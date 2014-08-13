@@ -1,5 +1,5 @@
+require 'active_record'
 require "dyna_form/version"
-
-module DynaForm
-  # Your code goes here...
-end
+require "dyna_form/constants"
+require "dyna_form/submission"
+require "dyna_form/base"
