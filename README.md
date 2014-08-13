@@ -78,8 +78,8 @@ and submit it:
 @test_form.submit!
 ```
 
-**`DynaForm#submit!` calls `ActiveRecord::Base#create!`. Which means that whatever
-exception `ActiveRecord::Base#create!` throws, `DynaForm#submit!` will throw.**
+`DynaForm#submit!` **calls** `ActiveRecord::Base#create!`**. Which means that whatever
+exception **`ActiveRecord::Base#create!`** throws, **`DynaForm#submit!`** will throw.**
 
 ## Contributing
 
