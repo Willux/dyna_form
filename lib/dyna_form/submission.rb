@@ -7,22 +7,15 @@ module DynaForm
       @attributes = attributes.clone
     end    
 
-    def submit!
-      submit_helper(true)
-    end
-
     def submit
-      submit_helper(false)
-    end
-
-    private
-
-    def submit_helper(dangerous)
       attrs = @attributes.select { |k, _| @variables.include?(k.to_sym) }
 
       class_name = @model
-      dangerous ? Kernel.const_get(class_name).create!(attrs) : Kernel.const_get(class_name).create(attrs)  
+      new_object = Kernel.const_get(class_name).new(attrs)
+      new_object.save
     end
+
+    private
 
     def parse_model(model)
       str_model = model.to_s

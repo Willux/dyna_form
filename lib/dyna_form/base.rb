@@ -41,12 +41,10 @@ module DynaForm
       @lazy_initialization ? create_var(method, arguments.first) : super
     end
 
-    def submit!
-      submissions.each { |s| s.submit! }
-    end
-
     def submit
-      submissions.each { |s| s.submit }
+      result = true
+      submissions.each { |s| result && s.submit }
+      result
     end
 
     def persisted?

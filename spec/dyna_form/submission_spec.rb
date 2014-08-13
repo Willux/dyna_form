@@ -44,7 +44,7 @@ describe DynaForm::Submission do
         attrs = { :first_name => "Who", :last_name => "Cares" }
 
         expect(Kernel).to receive(:const_get).with("AdminUser").and_return(hypo_object)
-        expect(hypo_object).to receive(:create).with(attrs).and_raise("User created")
+        expect(hypo_object).to receive(:new).with(attrs).and_raise("User created")
 
         submission = DynaForm::Submission.new(AdminUser, variables, attributes)
         expect { submission.submit }.to raise_error("User created")
