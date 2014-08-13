@@ -29,7 +29,30 @@ class TestForm < DynaForm::Base
 end
 ```
 
-In the controller you can create a form objec to pass in to the view:
+Now suppose `:first_name` and `:last_name` belong in the `User` model, while
+`address` belongs in the `Address` model. You can create a form in the following
+way:
+```ruby
+form_for @user do |f|
+  f.input :first_name
+  f.input :last_name
+  f.fields_for :address do |a|
+    a.input :address
+```
+
+This is just a simple example. The form can get much more complicated and more
+nested. **It can get really ugly really fast**
+
+Now suppose we have our `TestForm` like so:
+
+```ruby
+class TestForm < DynaForm::Base
+  submit :first_name, :last_name, to: User
+  submit :address, to: Address
+end
+```
+
+In the controller you can create a form object to pass in to the view:
 
 ```ruby
 @test_form = TestForm.new
@@ -44,8 +67,19 @@ form_for @test_form do |f|
 end
 ```
 
-Now suppose `:first_name` and `:last_name` belong in the `User` model, while
-`address` belongs in the `Address` model.
+Once all the form values are passed, you can create the object with the params:
+```ruby
+@test_form = TestForm.new(params)
+```
+
+and submit it:
+
+```ruby
+@test_form.submit!
+```
+
+***`DynaForm#submit!` calls `ActiveRecord::Base#create!`. Which means that whatever
+exception `ActiveRecord::Base#create!` throws, `DynaForm#submit!` will throw. 
 
 ## Contributing
 
