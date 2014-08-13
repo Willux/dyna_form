@@ -23,11 +23,11 @@ Or install it yourself as:
   This way you can keep your form submission functionality separate from the
   rest of the code.
 * Create a class that extends `DynaForm::Base`:
-  ```
+  ```Ruby
   class TestClass < DynaForm::Base
     # TODO: Put code here
   end
-  '''
+  ```
 
 ## Contributing
 
