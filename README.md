@@ -1,6 +1,7 @@
 # DynaForm
 
-
+* Delegate all your forms to given models. 
+* Create multiple entries through a single form without a need for nesting.
 
 ## Installation
 
@@ -18,7 +19,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+* If you are using Ruby on Rails, I suggest you create a `app/forms` folder.
+  This way you can keep your form submission functionality separate from the
+  rest of the code.
+* Create a class that extends `DynaForm::Base`:
+  ```
+  class TestClass < DynaForm::Base
+    # TODO: Put code here
+  end
+  '''
 
 ## Contributing
 
