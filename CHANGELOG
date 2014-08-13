@@ -1,0 +1,6 @@
+2014-08-13 Willux <zaikaus1@gmail.com>
+
+  * Removed the dangerous 'DynaForm::Base#submit!' method
+  * Ensured that 'DynaForm::Base#submit' returns a boolean if the validations pass.
+  * Allow users to add validations in the form class.
+  * Updated README.
