@@ -79,7 +79,7 @@ and submit it:
 ```
 
 **`DynaForm#submit!` calls `ActiveRecord::Base#create!`. Which means that whatever
-exception `ActiveRecord::Base#create!` throws, `DynaForm#submit!` will throw. 
+exception `ActiveRecord::Base#create!` throws, `DynaForm#submit!` will throw.**
 
 ## Contributing
 
