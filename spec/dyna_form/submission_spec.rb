@@ -11,7 +11,7 @@ describe DynaForm::Submission do
       it "should be able to properly parse the model name" do
         expect(Kernel).to receive(:const_get).with("AdminUser").and_raise("User created")
         submission = DynaForm::Submission.new(:admin_user, variables, attributes)
-        expect { submission.submit! }.to raise_error("User created")
+        expect { submission.submit }.to raise_error("User created")
       end
     end
 
@@ -19,7 +19,7 @@ describe DynaForm::Submission do
       it "should be able to properly parse the model name" do
         expect(Kernel).to receive(:const_get).with("AdminUser").and_raise("User created")
         submission = DynaForm::Submission.new("admin_user", variables, attributes)
-        expect { submission.submit! }.to raise_error("User created")
+        expect { submission.submit }.to raise_error("User created")
       end
     end
 
@@ -27,7 +27,7 @@ describe DynaForm::Submission do
       it "should be able to properly parse the model name" do
         expect(Kernel).to receive(:const_get).with("AdminUser").and_raise("User created")
         submission = DynaForm::Submission.new("adminUser", variables, attributes)
-        expect { submission.submit! }.to raise_error("User created")
+        expect { submission.submit }.to raise_error("User created")
       end
     end
 
@@ -35,7 +35,7 @@ describe DynaForm::Submission do
       it "should be able to properly parse the model name" do
         expect(Kernel).to receive(:const_get).with("AdminUser").and_raise("User created")
         submission = DynaForm::Submission.new("AdminUser", variables, attributes)
-        expect { submission.submit! }.to raise_error("User created")
+        expect { submission.submit }.to raise_error("User created")
       end
     end
 
@@ -44,17 +44,17 @@ describe DynaForm::Submission do
         attrs = { :first_name => "Who", :last_name => "Cares" }
 
         expect(Kernel).to receive(:const_get).with("AdminUser").and_return(hypo_object)
-        expect(hypo_object).to receive(:create!).with(attrs).and_raise("User created")
+        expect(hypo_object).to receive(:create).with(attrs).and_raise("User created")
 
         submission = DynaForm::Submission.new(AdminUser, variables, attributes)
-        expect { submission.submit! }.to raise_error("User created")
+        expect { submission.submit }.to raise_error("User created")
       end      
     end
 
     context "given the number of variables outweighs the attributes" do
       it "should raise an error" do
         submission = DynaForm::Submission.new("admin_user", too_many_vars, attributes)
-        expect { submission.submit! }.to raise_error("Attempted to delegate a non-existed attribute variable")
+        expect { submission.submit }.to raise_error("Attempted to delegate a non-existed attribute variable")
       end
     end
   end

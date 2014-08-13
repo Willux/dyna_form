@@ -47,9 +47,4 @@ describe DynaForm::Base do
       end
     end
   end
-
-  describe "#submit" do
-    
-  end
-
 end
