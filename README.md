@@ -81,6 +81,8 @@ and submit it:
 `DynaForm#submit!` calls `ActiveRecord::Base#create!`. Which means that whatever
 exception `ActiveRecord::Base#create!` throws, `DynaForm#submit!` will throw.
 
+You are welcome to add any validations you want in the form class. It'll allow you to keep your models skinnier and encapsulate any form functionality in a single class.
+
 ## Contributing
 
 1. Fork it ( https://github.com/willux/dyna_form/fork )
