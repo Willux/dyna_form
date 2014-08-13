@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = DynaForm::VERSION
   spec.authors       = ["Willux"]
   spec.email         = ["zaikaus1@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{A gem used to help delegate form fields to their respective models.}
+  spec.description   = %q{We want to avoid nested forms while creating a form based on some object. This will help keep the forms clean while easily delegating each field into their models.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
