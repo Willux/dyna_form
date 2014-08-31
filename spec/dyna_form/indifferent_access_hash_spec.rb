@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe DynaForm::ImprovedHash do
+describe DynaForm::IndifferentAccessHash do
   describe "#[]" do
-    let(:hsh) { DynaForm::ImprovedHash.new }
+    let(:hsh) { DynaForm::IndifferentAccessHash.new }
     context "given that I pass a float as a key" do
       it "should return by string and float key" do
         hsh[4.2] = "Test"
