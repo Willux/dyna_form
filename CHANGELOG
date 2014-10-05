@@ -1,4 +1,9 @@
-2014-08-13 Willux <zaikaus1@gmail.com>
+2014-08-19 Willux <zaikaus1@gmail.com> 0.2.0
+  * Add yardocs and generate the doc folder.
+  * Add check functionality
+  * Add my own improved hash class that utilizes indifferent access.
+
+2014-08-13 Willux <zaikaus1@gmail.com> 0.1.3
 
   * Removed the dangerous 'DynaForm::Base#submit!' method
   * Ensured that 'DynaForm::Base#submit' returns a boolean if the validations pass.
